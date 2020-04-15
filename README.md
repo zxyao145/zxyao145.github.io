@@ -1,4 +1,4 @@
 # zxyao145.github.io
 
-## [ByNotice Sample](https://github.com/zxyao145/ByNotice)
+## [ByNotice Sample](https://zxyao145.github.io/ByNotice)
 
