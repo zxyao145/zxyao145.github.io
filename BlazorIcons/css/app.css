@@ -183,6 +183,7 @@ app {
 }
 
 
+
 .bi-d-cell {
     display: flex;
     flex-direction: column;
@@ -229,5 +230,5 @@ app {
 }
 
 .custom-class-name {
-    border: 1px solid #efefef;
+    border: 4px solid #000;
 }
