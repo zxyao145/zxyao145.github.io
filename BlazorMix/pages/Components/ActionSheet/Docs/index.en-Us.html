@@ -1,0 +1,95 @@
+<h1>ActionSheet 动作面板</h1>
+<p>从底部弹出的动作菜单面板。</p>
+<h2>何时使用</h2>
+<p>由用户操作触发，提供一组与当前场景操作相关的两个或多个选项，让用户在不离场的情况下完成操作。</p>
+<p><code-demo Src="Demos/Components/ActionSheet/Demos/Demo1"></code-demo></p>
+<h2>API</h2>
+<h3>属性</h3>
+<div><table class="xmldoc-table">
+	                <thead>
+		                <tr>
+			                <th>Property</th>
+			                <th>Type</th>
+			                <th>Default</th>
+			                <th>Description</th>
+		                </tr>
+	                </thead>
+	                
+	                <tbody><tr><td>Visible</td><td>Boolean</td><td>False</td><td>是否可见</td></tr><tr><td>DestroyOnClose</td><td>Boolean</td><td>True</td><td>不可见时卸载内容</td></tr><tr><td>Actions</td><td>List&lt;ActionInfo&gt;</td><td></td><td></td></tr><tr><td>AfterClose</td><td>Func&lt;ValueTask&gt;</td><td></td><td></td></tr><tr><td>AfterShow</td><td>Func&lt;ValueTask&gt;</td><td></td><td></td></tr><tr><td>Extra</td><td>Nullable&lt;StringOrRenderFragment&gt;</td><td></td><td></td></tr><tr><td>CancelText</td><td>Nullable&lt;StringOrRenderFragment&gt;</td><td></td><td></td></tr><tr><td>OnAction</td><td>Func&lt;ActionInfo, Int32, ValueTask&gt;</td><td></td><td></td></tr><tr><td>OnClose</td><td>EventCallback</td><td></td><td></td></tr><tr><td>CloseOnAction</td><td>Boolean</td><td>False</td><td></td></tr><tr><td>SafeArea</td><td>Boolean</td><td>False</td><td></td></tr><tr><td>PopupClass</td><td>ClassBuilder</td><td></td><td></td></tr><tr><td>PopupStyle</td><td>StyleBuilder</td><td></td><td></td></tr><tr><td>ShowMask</td><td>Boolean</td><td>True</td><td></td></tr><tr><td>OnMaskClick</td><td>EventCallback</td><td></td><td></td></tr><tr><td>CloseOnMaskClick</td><td>Boolean</td><td>True</td><td></td></tr><tr><td>MaskClass</td><td>ClassBuilder</td><td></td><td></td></tr><tr><td>MaskStyle</td><td>StyleBuilder</td><td></td><td></td></tr></tbody></table></div><h3>ActionInfo</h3>
+<div><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Danger</td>
+<td>是否为危险状态</td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Description</td>
+<td>描述</td>
+<td><code>StringOrRenderFragment</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td>Disabled</td>
+<td>是否为禁用状态</td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>Key</td>
+<td>唯一标记</td>
+<td><code>string</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td>OnClick</td>
+<td>点击时触发</td>
+<td><code>Func&lt;ValueTask&gt;?</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td>Text</td>
+<td>标题</td>
+<td><code>StringOrRenderFragment</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td>Bold</td>
+<td>标题是否加粗</td>
+<td><code>bool</code></td>
+<td><code>false</code></td>
+</tr>
+</tbody>
+</table>
+</div><h3>服务</h3>
+<p>可以通过服务的方式使用 ActionSheet：</p>
+<pre class="language-c# page-code"><code class="language-c#">// [inject] ActionSheetService ActionSheetService
+var eleRef = ActionSheetService.Show(new ActionSheetOption { Actions = actions }));
+</code></pre><p>当动作面板被关闭后，组件实例会自动销毁。</p>
+<p><code>Show</code> 方法的返回值 <code>ActionSheetRef</code> 为一个组件控制器，包含以下属性：</p>
+<div><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>close</td>
+<td>关闭动作面板</td>
+<td><code>() =&gt; ValueTask</code></td>
+</tr>
+</tbody>
+</table>
+</div>

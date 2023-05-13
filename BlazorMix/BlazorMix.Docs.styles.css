@@ -1,0 +1,26 @@
+/* /Internal/DemoBlock.razor.rz.scp.css */
+.demo-block[b-tzphzzzhc5] {
+    box-sizing: border-box;
+    margin-bottom: 12px;
+    display: block;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,PingFang SC,Hiragino Sans GB,Microsoft YaHei,Helvetica Neue,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+}
+
+.block-title[b-tzphzzzhc5] {
+    padding: 12px 12px 8px;
+    color: #697b8c;
+    font-size: 14px;
+}
+
+
+
+.block-content[b-tzphzzzhc5] {
+    padding: 12px;
+    background: #fff;
+    border-right: none;
+    border-left: none;
+}
+/* /Internal/DemoDescription.razor.rz.scp.css */
+.demo-description[b-5i1izdpewb] {
+    color: #999;
+}

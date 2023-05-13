@@ -1,0 +1,55 @@
+<h1>Button 按钮</h1>
+<p>用于开始一个即时操作。</p>
+<h2>何时使用</h2>
+<p>标记了一个或封装一组操作命令，响应用户点击行为，触发相应的业务逻辑。</p>
+<p><code-demo Src="Demos/Components/Button/Demos/Demo1"></code-demo></p>
+<h2>API</h2>
+<h3>属性</h3>
+<div><table class="xmldoc-table">
+	                <thead>
+		                <tr>
+			                <th>Property</th>
+			                <th>Type</th>
+			                <th>Default</th>
+			                <th>Description</th>
+		                </tr>
+	                </thead>
+	                
+	                <tbody><tr><td>Block</td><td>Boolean</td><td>False</td><td>是否渲染为块状元素</td></tr><tr><td>Disabled</td><td>Boolean</td><td>False</td><td>是否禁用</td></tr><tr><td>Loading</td><td>Boolean</td><td>False</td><td>是否处于加载中的状态</td></tr><tr><td>AutoLoading</td><td>Boolean</td><td>False</td><td>自动展示 Loading 状态，这将会覆盖 <code>Button.Loading</code> . </td></tr><tr><td>Color</td><td>String</td><td>default</td><td>按钮颜色，所有内置颜色参考 <code>ButtonColor</code> 。  如果你想要自定义颜色，请定义 <code>.btn-{Color}</code>.btn-{Color} class。  </td></tr><tr><td>Shape</td><td>String</td><td>rounded</td><td>按钮形状</td></tr><tr><td>Type</td><td>String</td><td>button</td><td>原生 button 元素的 type 类型</td></tr><tr><td>Size</td><td>String</td><td>md</td><td>按钮尺寸</td></tr><tr><td>Fill</td><td>String</td><td>solid</td><td>填充模式</td></tr><tr><td>Icon</td><td>RenderFragment</td><td></td><td>按钮内部图标，可完全自定义。当 <code>Button.Loading</code> 是 true 时，该 Icon 将会被因此。 </td></tr><tr><td>LoadingIcon</td><td>RenderFragment</td><td></td><td>自定义加载状态的 Icon。</td></tr><tr><td>OnClick</td><td>EventCallback&lt;MouseEventArgs&gt;</td><td></td><td>OnClick 事件</td></tr></tbody></table></div><h3>CSS 变量</h3>
+<div><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--btn-bg-color</td>
+<td>背景颜色</td>
+<td><code>var(--main-backgroup-color)</code>（不同Color不一样）</td>
+</tr>
+<tr>
+<td>--btn-text-color</td>
+<td>文字颜色</td>
+<td><code>var(--main-text-color)</code>（不同Color不一样）</td>
+</tr>
+<tr>
+<td>--btn-border-width</td>
+<td>边框宽度</td>
+<td><code>var(--border-width)</code></td>
+</tr>
+<tr>
+<td>--btn-border-style</td>
+<td>边框样式</td>
+<td><code>var(--border-style)</code></td>
+</tr>
+<tr>
+<td>--btn-border-color</td>
+<td>边框颜色</td>
+<td><code>var(--border-color)</code></td>
+</tr>
+</tbody>
+</table>
+</div>

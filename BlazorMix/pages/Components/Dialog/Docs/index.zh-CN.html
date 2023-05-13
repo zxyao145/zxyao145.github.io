@@ -1,0 +1,108 @@
+<h1>Dialog 对话框</h1>
+<p>用于重要信息的告知或操作的反馈，并附带少量的选项供用户进行操作。</p>
+<h2>何时使用</h2>
+<p>需要用户处理事务，又不希望跳转页面以致打断工作流程时，可以使用 Dialog 在当前页面正中打开一个浮层，承载相应的操作。</p>
+<h2>Dialog</h2>
+<p><code-demo Src="Demos/Components/Dialog/Demos/Demo1"></code-demo></p>
+<p><code-demo Src="Demos/Components/Dialog/Demos/Demo2"></code-demo></p>
+<h2>API</h2>
+<h3>属性</h3>
+<div><table class="xmldoc-table">
+	                <thead>
+		                <tr>
+			                <th>Property</th>
+			                <th>Type</th>
+			                <th>Default</th>
+			                <th>Description</th>
+		                </tr>
+	                </thead>
+	                
+	                <tbody><tr><td>Visible</td><td>Boolean</td><td>False</td><td>显示隐藏</td></tr><tr><td>AfterClose</td><td>Func&lt;ValueTask&gt;</td><td></td><td>在关闭后回调</td></tr><tr><td>AfterShow</td><td>Func&lt;ValueTask&gt;</td><td></td><td>在打开后回调</td></tr><tr><td>CloseOnMaskClick</td><td>Boolean</td><td>False</td><td>点击背景蒙层后是否关闭</td></tr><tr><td>MaskClass</td><td>ClassBuilder</td><td></td><td>Dialog 遮罩类名</td></tr><tr><td>MaskStyle</td><td>StyleBuilder</td><td></td><td>Dialog 遮罩样式</td></tr><tr><td>Container</td><td>String</td><td>body</td><td>指定挂载的 HTML 节点，如果为 null 的话，会渲染到当前节点.</td></tr><tr><td>BodyClass</td><td>ClassBuilder</td><td></td><td>Dialog 内容类名</td></tr><tr><td>BodyStyle</td><td>StyleBuilder</td><td></td><td>Dialog 内容样式</td></tr><tr><td>DestroyOnClose</td><td>Boolean</td><td>False</td><td>不可见时卸载内容</td></tr><tr><td>DisableBodyScroll</td><td>Boolean</td><td>True</td><td>是否禁用 body 滚动</td></tr><tr><td>Actions</td><td>List&lt;DialogAction&gt;</td><td></td><td>操作按钮列表，可以传入二级数组（List<DialogActionItem>）来实现同一行内并排多个按钮。
+            Alert 和 Confirm 模式中不允许设置</td></tr><tr><td>Image</td><td>String</td><td></td><td>图片 url</td></tr><tr><td>Header</td><td>Nullable&lt;StringOrRenderFragment&gt;</td><td></td><td>顶部区域</td></tr><tr><td>Title</td><td>Nullable&lt;StringOrRenderFragment&gt;</td><td></td><td>对话框标题</td></tr><tr><td>Content</td><td>Nullable&lt;StringOrRenderFragment&gt;</td><td></td><td>对话框内容</td></tr><tr><td>OnAction</td><td>Func&lt;DialogActionItem, Int32, Task&gt;</td><td></td><td>点击操作按钮时触发</td></tr><tr><td>CloseOnAction</td><td>Boolean</td><td>False</td><td>点击操作按钮后后是否关闭</td></tr><tr><td>OnClose</td><td>EventCallback&lt;DialogActionEventArgs&gt;</td><td></td><td>关闭时触发</td></tr></tbody></table></div><h3>DialogAction / DialogActionItem</h3>
+<div><table class="xmldoc-table">
+	                <thead>
+		                <tr>
+			                <th>Property</th>
+			                <th>Type</th>
+			                <th>Default</th>
+			                <th>Description</th>
+		                </tr>
+	                </thead>
+	                
+	                <tbody><tr><td>Key</td><td>String</td><td>bb5c29e6-1881-4163-a6fe-cdf8030723df</td><td>唯一标记</td></tr><tr><td>Text</td><td>StringOrRenderFragment</td><td></td><td>标题</td></tr><tr><td>Disabled</td><td>Boolean</td><td>False</td><td>是否为禁用状态</td></tr><tr><td>Danger</td><td>Boolean</td><td>False</td><td>是否为危险状态</td></tr><tr><td>Bold</td><td>Boolean</td><td>False</td><td>是否文字加粗</td></tr><tr><td>OnClick</td><td>Func&lt;DialogActionEventArgs, Task&gt;</td><td></td><td>按钮点击时触发</td></tr></tbody></table></div><h2>指令式</h2>
+<p>可以通过指令式的方式使用 Dialog：</p>
+<h3>DialogService.Show</h3>
+<pre class="language-csharp page-code"><code class="language-csharp">var dialogRef = DialogService.Show(new DialogOption{})
+</code></pre><p>可以通过调用 DialogService 的 Show 方法直接打开对话框，其中 DialogOption 参数的类型同上表，但不支持传入 Visible 属性。</p>
+<p>当对话框被关闭后，组件实例会自动销毁。</p>
+<p><code>Show</code> 方法返回一个 <code>DialogRef</code> 对象，可以通过 <code>DialogRef.Close</code> 关闭显示中的 Dialog 对象.</p>
+<p><code>Show</code> 只是一个很基础的方法，在实际业务中，更为常用的是下面的 Alert 和 Confirm 方法：</p>
+<h3>DialogService.alert</h3>
+<p><code>Alert</code> 接受的参数同 <code>Show</code>(<code>DialogAlertOption</code>)，但不支持 <code>CloseOnAction</code> <code>Actions</code> 属性，它的返回值是 Task，这个 Task 会等待 Action 按钮的点击。此外，它还额外支持以下属性：</p>
+<p>此外，它还额外支持以下属性：</p>
+<div><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ConfirmText</td>
+<td>确认按钮的内容</td>
+<td><code>StringOrRenderFragment</code></td>
+<td><code>'我知道了'</code></td>
+</tr>
+<tr>
+<td>OnConfirm</td>
+<td>点击确认按钮时触发</td>
+<td><code>Func&lt;DialogActionEventArgs, Task&gt;</code></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+</div><h3>DialogService.Confirm</h3>
+<p><code>Confirm</code> 接受的参数同 <code>Show</code>(<code>DialogConfirmOption</code>)，但不支持 <code>CloseOnAction</code> <code>Actions</code> 属性，它的返回值是 Task<bool>， bool 用来表明 点击了确定按钮还是取消按钮。
+需要注意的是，这个 Task<bool> 同样会等待 Action 按钮的点击。</p>
+<p>此外，它还额外支持以下属性：</p>
+<div><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>类型</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CancelText</td>
+<td>取消按钮的内容</td>
+<td><code>StringOrRenderFragment</code></td>
+<td><code>'取消'</code></td>
+</tr>
+<tr>
+<td>ConfirmText</td>
+<td>确认按钮的内容</td>
+<td><code>StringOrRenderFragment</code></td>
+<td><code>'确认'</code></td>
+</tr>
+<tr>
+<td>OnCancel</td>
+<td>点击取消按钮时触发</td>
+<td><code>Func&lt;DialogActionEventArgs, Task&gt;</code></td>
+<td>-</td>
+</tr>
+<tr>
+<td>OnConfirm</td>
+<td>点击确认按钮时触发</td>
+<td><code>Func&lt;DialogActionEventArgs, Task&gt;</code></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+</div><h3>DialogService.Clear</h3>
+<p>可以通过调用 DialogService 上的 clear 方法关闭所有打开的对话框，通常用于路由监听中，处理路由前进、后退不能关闭对话框的问题。</p>

@@ -1,0 +1,36 @@
+<h1>Toast 轻提示</h1>
+<p>对操作结果的轻量级反馈，无需用户操作即可自行消失。</p>
+<h2>何时使用</h2>
+<p>适用于页面内容的变化不能直接反应操作结果时使用。</p>
+<p><code-demo Src="Demos/Components/Toast/Demos/Demo1"></code-demo></p>
+<h2>Toast</h2>
+<h2>指令式 API</h2>
+<p>Toast 只支持指令式调用。</p>
+<pre class="language-csharp page-code"><code class="language-csharp">@inject ToastService ToastService;
+ToastService.Show(new ToastOption(){});
+</code></pre><h3>ToastService.Show</h3>
+<p><code>Show</code> 方法支持传入一个 <code>ToastOption</code> 对象，它包含了以下这些属性：</p>
+<div><table class="xmldoc-table">
+	                <thead>
+		                <tr>
+			                <th>Property</th>
+			                <th>Type</th>
+			                <th>Default</th>
+			                <th>Description</th>
+		                </tr>
+	                </thead>
+	                
+	                <tbody><tr><td>AfterClose</td><td>Func&lt;ValueTask&gt;</td><td></td><td>Toast 完全关闭后的回调</td></tr><tr><td>Content</td><td>StringOrRenderFragment</td><td></td><td>Toast 文本内容</td></tr><tr><td>DurationMs</td><td>Int32</td><td>2000</td><td>提示持续时间，若小于等于 0 则不会自动关闭</td></tr><tr><td>Icon</td><td>Nullable&lt;OneOf&lt;ToastIconType, RenderFragment&gt;&gt;</td><td></td><td>Toast 图标，支持枚举 ToastIconType 或 RenderFragment</td></tr><tr><td>MaskClass</td><td>ClassBuilder</td><td></td><td>Toast 遮罩类名</td></tr><tr><td>MaskClickable</td><td>Boolean</td><td>True</td><td>是否允许背景点击</td></tr><tr><td>MaskStyle</td><td>StyleBuilder</td><td></td><td>Toast 遮罩样式</td></tr><tr><td>Position</td><td>ToastPosition</td><td>Center</td><td>垂直方向显示位置</td></tr></tbody></table></div><blockquote>
+<p>同一时间只允许弹出一个轻提示，新出现的 Toast 会将之前正在显示中的 Toast 挤掉。</p>
+</blockquote>
+<p><code>Show</code> 方法返回一个 <code>ToastRef</code> 对象，可以通过 <code>ToastRef.Close</code> 关闭显示中的 Toast 对象.</p>
+<h3>ToastService.Clear</h3>
+<p>关闭所有显示中的 Toast。</p>
+<h3>ToastService.Config</h3>
+<p>全局配置，支持配置 duration、position 和 maskClickable。</p>
+<pre class="language-csharp page-code"><code class="language-csharp">public void Config(
+        int? durationMs = null,
+        ToastPosition? position = null,
+        bool? maskClickable = null
+        )
+</code></pre>

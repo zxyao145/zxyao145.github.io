@@ -1,0 +1,45 @@
+<h1>Space 间距</h1>
+<p>元素排列中保持相同的宽度。</p>
+<h2>何时使用</h2>
+<p>适用于多个元素按照水平或垂直方向保持相同的间距。</p>
+<p><code-demo Src="Demos/Components/Space/Demos/Demo1"></code-demo></p>
+<h2>API</h2>
+<h3>属性</h3>
+<div><table class="xmldoc-table">
+	                <thead>
+		                <tr>
+			                <th>Property</th>
+			                <th>Type</th>
+			                <th>Default</th>
+			                <th>Description</th>
+		                </tr>
+	                </thead>
+	                
+	                <tbody><tr><td>Align</td><td>String</td><td></td><td>start | end |center |baseline</td></tr><tr><td>Justify</td><td>String</td><td></td><td>Cross axis alignment</td></tr><tr><td>Block</td><td>Boolean</td><td>False</td><td>Whether to render as block level elements</td></tr><tr><td>Wrap</td><td>Boolean</td><td>False</td><td>Whether to automatically wrap, only valid when horizontal.</td></tr><tr><td>Direction</td><td>BmDirection</td><td>horizontal</td><td>Spacing direction</td></tr><tr><td>OnClick</td><td>EventCallback&lt;MouseEventArgs&gt;</td><td></td><td>Click event of Space.</td></tr></tbody></table></div><h3>CSS 变量</h3>
+<div><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--space-gap</td>
+<td>间距大小</td>
+<td><code>var(--gap)</code> (8px)</td>
+</tr>
+<tr>
+<td>--space-gap-vertical</td>
+<td>水平方向的间距大小</td>
+<td><code>var(--space-gap)</code></td>
+</tr>
+<tr>
+<td>--space-gap-horizontal</td>
+<td>垂直方向的间距大小</td>
+<td><code>var(--space-gap)</code></td>
+</tr>
+</tbody>
+</table>
+</div>

@@ -1,0 +1,56 @@
+<h1>Button 按钮</h1>
+<p>用于开始一个即时操作。</p>
+<h2>何时使用</h2>
+<p>标记了一个或封装一组操作命令，响应用户点击行为，触发相应的业务逻辑。</p>
+<p><code-demo Src="Demos/Components/Button/Demos/Demo1"></code-demo></p>
+<h2>API</h2>
+<h3>属性</h3>
+<div><table class="xmldoc-table">
+	                <thead>
+		                <tr>
+			                <th>Property</th>
+			                <th>Type</th>
+			                <th>Default</th>
+			                <th>Description</th>
+		                </tr>
+	                </thead>
+	                
+	                <tbody><tr><td>Block</td><td>Boolean</td><td>False</td><td>Is block</td></tr><tr><td>Disabled</td><td>Boolean</td><td>False</td><td>Is disable</td></tr><tr><td>Loading</td><td>Boolean</td><td>False</td><td>Is in loading</td></tr><tr><td>AutoLoading</td><td>Boolean</td><td>False</td><td>Auto show loading state. 
+            It's will override <code>Button.Loading</code> </td></tr><tr><td>Color</td><td>String</td><td>default</td><td>The color of button. All built-in values please see <code>ButtonColor</code> .  If you want to customize colors, please define class <code>.btn-{Color}</code>.btn-{Color}  </td></tr><tr><td>Shape</td><td>String</td><td>rounded</td><td>The shape of the button</td></tr><tr><td>Type</td><td>String</td><td>button</td><td>The type attribute of the native button element</td></tr><tr><td>Size</td><td>String</td><td>md</td><td>Button size</td></tr><tr><td>Fill</td><td>String</td><td>solid</td><td>Fill model.</td></tr><tr><td>Icon</td><td>RenderFragment</td><td></td><td>Button internal icon, fully customizable. It will be hide when <code>Button.Loading</code> is true. </td></tr><tr><td>LoadingIcon</td><td>RenderFragment</td><td></td><td>loading icon</td></tr><tr><td>OnClick</td><td>EventCallback&lt;MouseEventArgs&gt;</td><td></td><td>OnClick event.</td></tr></tbody></table></div><h3>CSS 变量</h3>
+<div><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--btn-bg-color</td>
+<td>背景颜色</td>
+<td><code>var(--main-backgroup-color)</code>（不同Color不一样）</td>
+</tr>
+<tr>
+<td>--btn-text-color</td>
+<td>文字颜色</td>
+<td><code>var(--main-text-color)</code>（不同Color不一样）</td>
+</tr>
+<tr>
+<td>--btn-border-width</td>
+<td>边框宽度</td>
+<td><code>var(--border-width)</code></td>
+</tr>
+<tr>
+<td>--btn-border-style</td>
+<td>边框样式</td>
+<td><code>var(--border-style)</code></td>
+</tr>
+<tr>
+<td>--btn-border-color</td>
+<td>边框颜色</td>
+<td><code>var(--border-color)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
