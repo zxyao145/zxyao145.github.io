@@ -31,7 +31,7 @@ body {
 
 .masthead {
   max-width: 48rem;
-  margin-bottom: clamp(4.5rem, 10vw, 8rem);
+  margin-bottom: 2.5rem;
 }
 
 .eyebrow,
