@@ -1,0 +1,8 @@
+baseURL = "https://zxyao145.github.io/"
+locale = "en"
+title = "zxyao145's Projects"
+enableRobotsTXT = true
+disableKinds = ["RSS", "taxonomy", "term"]
+
+[params]
+  description = "A Hugo-powered directory of Blazor WebAssembly component demos."

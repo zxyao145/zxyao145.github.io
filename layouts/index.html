@@ -1,0 +1,35 @@
+{{ define "main" }}
+  <main class="site-shell">
+    <header class="masthead">
+      <p class="eyebrow">zxyao145.github.io</p>
+      <h1>{{ .Title }}</h1>
+      <p class="intro">{{ .Params.intro }}</p>
+    </header>
+
+    <section aria-labelledby="demos-heading">
+      <div class="section-heading">
+        <p class="eyebrow">Published demos</p>
+        <h2 id="demos-heading">Browse the work</h2>
+      </div>
+
+      <div class="project-list">
+        {{ range hugo.Data.projects }}
+          <article class="project">
+            <p class="project-kind">{{ .kind }}</p>
+            <h3>{{ .name }}</h3>
+            <p>{{ .description }}</p>
+            <p class="project-links">
+              {{ with .demo }}<a href="{{ . | relURL }}">Open demo <span aria-hidden="true">↗</span></a>{{ end }}
+              <a href="{{ .repository }}" rel="external">Source <span aria-hidden="true">↗</span></a>
+            </p>
+          </article>
+        {{ end }}
+      </div>
+    </section>
+
+    <footer>
+      <span>Hugo index</span>
+      <a href="https://www.zxyao.net">Visit zxyao.net <span aria-hidden="true">↗</span></a>
+    </footer>
+  </main>
+{{ end }}

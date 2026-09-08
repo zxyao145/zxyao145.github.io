@@ -1,0 +1,35 @@
+- name: BQuery
+  kind: Blazor
+  description: A query component demo for Blazor.
+  demo: BQuery/
+  repository: https://github.com/zxyao145/BQuery
+
+- name: ByNotice
+  kind: Blazor
+  description: Lightweight notification components for Blazor applications.
+  demo: ByNotice/
+  repository: https://github.com/zxyao145/ByNotice
+
+- name: BlazorIcons
+  kind: Blazor
+  description: An icon library showcase for Blazor projects.
+  demo: BlazorIcons/
+  repository: https://github.com/zxyao145/BlazorIcons
+
+- name: BcdForm
+  kind: Blazor WebAssembly
+  description: A form component demo currently published separately.
+  demo: BcdForm/
+  repository: https://github.com/BcdLib/BcdForm
+
+- name: BlazorMix
+  kind: Blazor WebAssembly
+  description: Documentation and examples for the BlazorMix component collection.
+  demo: BlazorMix/
+  repository: https://github.com/zxyao145/BlazorMix
+
+- name: OlHoneycomb
+  kind: OpenLayers
+  description: A honeycomb map rendering demo.
+  demo: OlHoneycomb/
+  repository: https://github.com/zxyao145/OlHoneycomb
